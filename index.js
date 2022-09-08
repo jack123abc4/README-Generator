@@ -71,7 +71,7 @@ function init() {
         .prompt(questions)
         .then((response) => {
             console.log("response: ", response);
-            generateMarkdown(response);
+            console.log(generateMarkdown(response));
             //writeToFile("README.md",generateMarkdown({...response}));
         });
 }
