@@ -1,62 +1,72 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
+const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown.js");
+
 
 // TODO: Create an array of questions for user input
-const questions = ["Project title?", "What is the purpose of this project?", "What are the installation requirements?", "How is the app used?", "License?", "Any other contributors?", "Testing?"];
+// const questions = ["Project title?", "What is the purpose of this project?", "What are the installation requirements?", "How is the app used?", "License?", "Any other contributors?", "Testing?"];
 
-const questionNames = ["title", "description", "installation", "usage", "license", "contributors", "testing"];
+// email, github
+const questions = [
+    {
+        type: "input",
+        name: "title",
+        message: "Project title?",
+    },
+    {
+        type: "input",
+        name: "description",
+        message: "What is the purpose of this app?",
+    },
+    {
+        type: "input",
+        name: "installation",
+        message: "What are the required installation steps?",
+    },
+    {
+        type: "input",
+        name: "usage",
+        message: "How can the app be used?",
+    },
+    {
+        type: "input",
+        name: "credits",
+        message: "Any contributors?",
+    },
+    {
+        type: "list",
+        name: "license",
+        message: "Which license?",
+        choices: [
+            'Apache License 2.0',
+            'BSD 3-Clause "New" or "Revised" license',
+            'BSD 2-Clause "Simplified" or "FreeBSD" license',
+            'GNU General Public License (GPL)',
+            'GNU Library or "Lesser" General Public License (LGPL)',
+            'MIT license',
+            'Mozilla Public License 2.0',
+            'Common Development and Distribution License',
+            'Eclipse Public License version 2.0',
+            'None required',
+        ]
+    },
+]
+
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    return fs.writeFile(path.join(process.cwd(), fileName), data);
+}
 
 // TODO: Create a function to initialize app
 function init() {
-    answers = [];
-    
     inquirer
-        .prompt([
-            {
-                type: "input",
-                message: questions[0],
-                name: questionNames[0],
-            },
-            {
-                type: "input",
-                message: questions[1],
-                name: questionNames[1],
-            },
-            {
-                type: "input",
-                message: questions[2],
-                name: questionNames[2],
-            },
-            {
-                type: "input",
-                message: questions[3],
-                name: questionNames[3],
-            },
-            {
-                type: "input",
-                message: questions[4],
-                name: questionNames[4],
-            },
-            {
-                type: "input",
-                message: questions[5],
-                name: questionNames[5],
-            },
-            {
-                type: "input",
-                message: questions[6],
-                name: questionNames[6],
-            },
-        ])
+        .prompt(questions)
         .then((response) => {
             console.log("response: ", response);
-        }
-            
-        );
-    console.log(answers);
+            //writeToFile("README.md",generateMarkdown({...response}));
+        });
 }
 
 // Function call to initialize app
