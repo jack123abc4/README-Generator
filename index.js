@@ -39,16 +39,22 @@ const questions = [
         name: "license",
         message: "Which license?",
         choices: [
-            'Apache License 2.0',
-            'BSD 3-Clause "New" or "Revised" license',
-            'BSD 2-Clause "Simplified" or "FreeBSD" license',
-            'GNU General Public License (GPL)',
-            'GNU Library or "Lesser" General Public License (LGPL)',
-            'MIT license',
-            'Mozilla Public License 2.0',
-            'Common Development and Distribution License',
-            'Eclipse Public License version 2.0',
-            'None required',
+            'Apache License (apache-2.0)',
+            'GNU General Public License (gpl-3.0)',
+            'GNU Lesser General Public License (lgpl-3.0)',
+            'MIT License (MIT)',
+            'Mozilla Public License (mpl-2.0)',
+            'None required (unilicense)',
+            // 'Apache License 2.0',
+            // 'BSD 3-Clause "New" or "Revised" license',
+            // 'BSD 2-Clause "Simplified" or "FreeBSD" license',
+            // 'GNU General Public License (GPL)',
+            // 'GNU Library or "Lesser" General Public License (LGPL)',
+            // 'MIT license',
+            // 'Mozilla Public License 2.0',
+            // 'Common Development and Distribution License',
+            // 'Eclipse Public License version 2.0',
+            // 'None required',
         ]
     },
 ]
@@ -65,6 +71,7 @@ function init() {
         .prompt(questions)
         .then((response) => {
             console.log("response: ", response);
+            generateMarkdown(response);
             //writeToFile("README.md",generateMarkdown({...response}));
         });
 }
