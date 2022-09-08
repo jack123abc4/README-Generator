@@ -62,7 +62,11 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    return fs.writeFile(path.join(process.cwd(), fileName), data);
+    console.log(fileName,data);
+    //return fs.writeFile(path.join(process.cwd(), fileName), data);
+    fs.writeFile(fileName, data, (err) =>
+    err ? console.error(err) : console.log(`Successfully written file to path ${fileName}`));
+    return;
 }
 
 // TODO: Create a function to initialize app
@@ -71,8 +75,7 @@ function init() {
         .prompt(questions)
         .then((response) => {
             console.log("response: ", response);
-            console.log(generateMarkdown(response));
-            //writeToFile("README.md",generateMarkdown({...response}));
+            writeToFile("./test.md",generateMarkdown({...response}));
         });
 }
 
