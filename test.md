@@ -1,8 +1,10 @@
-# streetcrosser
+# a
+
+   ![GNU General Public License (gpl-3.0)](https://img.shields.io/badge/license-gpl--3.0-green)
 
    ## Description
 
-   helps user cross street
+   b
 
    ## Table of Contents (Optional)
 
@@ -15,22 +17,19 @@
 
    ## Installation
 
-   download app on phone
+   c
 
    ## Usage
 
-   insert earbuds and await street crossing sound
+   d
 
    ## Credits
 
-   none
+   e
 
    ## License
 
-   ## License
-  [MIT License (MIT)](https://choosealicense.com/licenses/MIT/)
-
-  ![MIT License (MIT)](https://img.shields.io/badge/license-MIT-green)
+   [GNU General Public License (gpl-3.0)](https://choosealicense.com/licenses/gpl-3.0/)
 
    ## Features
 
@@ -43,4 +42,3 @@
    ## Tests
 
    Go the extra mile and write tests for your application. Then provide examples on how to run them here.
-
