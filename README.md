@@ -27,7 +27,8 @@
    
    After cloning the repo this application can be interacted with in the terminal.
    
-   ![Screenshot of terminal](assets\screenshot.PNG)
+   ![screenshot](https://user-images.githubusercontent.com/15790800/189260785-bb71e00a-cd6b-4595-8b9f-243f27a10802.PNG)
+
 
    ## Credits
    
