@@ -6,7 +6,7 @@
    
    This application helps users generate professional-looking READMEs for their repos.
    
-   ## Table of Contents (Optional)
+   ## Table of Contents
    
    - [Installation](#installation)
    - [Usage](#usage)
