@@ -29,6 +29,8 @@
    
    ![screenshot](https://user-images.githubusercontent.com/15790800/189260785-bb71e00a-cd6b-4595-8b9f-243f27a10802.PNG)
 
+   
+   [Github repo](https://github.com/jack123abc4/README-Generator)
 
    ## Credits
    
