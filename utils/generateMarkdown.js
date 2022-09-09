@@ -31,7 +31,7 @@ function renderLicenseSection(license) {
   }
   return `## License
   This license can be distributed under [${license}](${renderLicenseLink(license)})`; // returns license Markdown
-
+}
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   const licenseSection = renderLicenseSection(data.license); // calls license section function

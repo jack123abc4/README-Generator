@@ -27,7 +27,7 @@
    
    After cloning the repo this application can be interacted with in the terminal.
    
-   ![Screenshot of terminal](.\assets\screenshot.PNG)
+   ![Screenshot of terminal](assets\screenshot.PNG)
 
    ## Credits
    
