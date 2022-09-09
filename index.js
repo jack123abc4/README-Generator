@@ -5,10 +5,10 @@ const generateMarkdown = require("./utils/generateMarkdown.js");
 
 
 // TODO: Create an array of questions for user input
-// const questions = ["Project title?", "What is the purpose of this project?", "What are the installation requirements?", "How is the app used?", "License?", "Any other contributors?", "Testing?"];
 
 // email, github
 const questions = [
+    // array of questions that will be used as inquirer prompts
     {
         type: "input",
         name: "email",
@@ -60,42 +60,31 @@ const questions = [
         type: "list",
         name: "license",
         message: "Which license?",
-        choices: [
+        choices: [ // choices for licenses
             'Apache License (apache-2.0)',
             'GNU General Public License (gpl-3.0)',
             'GNU Lesser General Public License (lgpl-3.0)',
             'MIT License (MIT)',
             'Mozilla Public License (mpl-2.0)',
             'None',
-            // 'Apache License 2.0',
-            // 'BSD 3-Clause "New" or "Revised" license',
-            // 'BSD 2-Clause "Simplified" or "FreeBSD" license',
-            // 'GNU General Public License (GPL)',
-            // 'GNU Library or "Lesser" General Public License (LGPL)',
-            // 'MIT license',
-            // 'Mozilla Public License 2.0',
-            // 'Common Development and Distribution License',
-            // 'Eclipse Public License version 2.0',
-            // 'None required',
         ]
     },
 ]
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data, err) {
+function writeToFile(fileName, data, err) { // takes in prompt data and writes to README file
     console.log(fileName,data);
-    //return fs.writeFile(path.join(process.cwd(), fileName), data);
     fs.writeFile(fileName, data, (err) =>
     err ? console.error(err) : console.log(`Successfully written file to path ${fileName}`));
     return;
 }
 
 // TODO: Create a function to initialize app
-function init() {
+function init() { // called when application starts
     inquirer
-        .prompt(questions)
-        .then((response) => {
+        .prompt(questions) // asks prompt questions in terminal
+        .then((response) => { // calls write to file function on receiving data
             console.log("response: ", response);
             writeToFile("./README.md",generateMarkdown({...response}));
         });
