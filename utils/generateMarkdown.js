@@ -1,16 +1,22 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
+  if (license === "None") {
+    return "";
+  }
   let licenseSuffix = license.split(" ");
   licenseSuffix = licenseSuffix[licenseSuffix.length-1];
   licenseSuffix = licenseSuffix.substring(1,licenseSuffix.length-1);
   licenseSuffix = licenseSuffix.split("-").join("--");
-  return `https://img.shields.io/badge/license-${licenseSuffix}-green`
+  return `![${license}](https://img.shields.io/badge/license-${licenseSuffix}-green)`
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
+  if (license === "None") {
+    return "";
+  }
   let licenseSuffix = license.split(" ");
   licenseSuffix = licenseSuffix[licenseSuffix.length-1];
   licenseSuffix = licenseSuffix.substring(1,licenseSuffix.length-1);
@@ -20,7 +26,11 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  return `This license can be distributed under [${license}](${renderLicenseLink(license)})`;
+  if (license === "None") {
+    return "";
+  }
+  return `## License
+  This license can be distributed under [${license}](${renderLicenseLink(license)})`;
 }
 
 // TODO: Create a function to generate markdown for README
@@ -28,7 +38,7 @@ function generateMarkdown(data) {
   const licenseSection = renderLicenseSection(data.license);
    return `# ${data.title}
 
-   ![${data.license}](${renderLicenseBadge(data.license)})
+   ${renderLicenseBadge(data.license)}
 
    ## Description
    
@@ -39,11 +49,17 @@ function generateMarkdown(data) {
    - [Installation](#installation)
    - [Usage](#usage)
    - [Credits](#credits)
+   - [Contribute](#contribute)
+   - [Tests](#tests)
+   - [Questions](#questions)
    - [License](#license)
    
    ## Installation
    
+   To install the correct dependencies please run:
+   ~~~
    ${data.installation}
+   ~~~
    
    ## Usage
    
@@ -53,22 +69,24 @@ function generateMarkdown(data) {
    
    ${data.credits}
    
-   ## License
+   ## Contribute
    
-   ${licenseSection}
-   
-   ## Features
-   
-   If your project has a lot of features, list them here.
-   
-   ## How to Contribute
-   
-   If you created an application or package and would like other developers to contribute to it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+   ${data.contribute}
    
    ## Tests
-   
-   Go the extra mile and write tests for your application. Then provide examples on how to run them here.
 
+   To install the correct dependencies please run:
+   ~~~
+   ${data.testing}
+   ~~~
+
+   ## Questions
+
+   Check out my Github profile at: [${data.github}](https://github.com/data.github)
+
+   Feel free to reach out at: [${data.email}](${data.email})
+   
+   ${licenseSection}
   `;
 }
 

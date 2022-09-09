@@ -11,28 +11,50 @@ const generateMarkdown = require("./utils/generateMarkdown.js");
 const questions = [
     {
         type: "input",
+        name: "email",
+        message: "What is your email?",
+    },
+    {
+        type: "input",
+        name: "github",
+        message: "What is your Github?",
+    },
+    {
+        type: "input",
         name: "title",
         message: "Project title?",
     },
     {
         type: "input",
         name: "description",
-        message: "What is the purpose of this app?",
+        message: "Please provide a short description of your application.",
     },
     {
         type: "input",
         name: "installation",
-        message: "What are the required installation steps?",
+        message: "What command should be run to install dependencies?",
+        default: "npm install",
     },
     {
         type: "input",
         name: "usage",
-        message: "How can the app be used?",
+        message: "What information does the user need in order to use this application?",
     },
     {
         type: "input",
         name: "credits",
-        message: "Any contributors?",
+        message: "Anyone else to credit?",
+    },
+    {
+        type: "input",
+        name: "contribute",
+        message: "What are your contribution guidelines?",
+    },
+    {
+        type: "input",
+        name: "testing",
+        message: "What command should be input to run tests?",
+        default: "node index.js"
     },
     {
         type: "list",
@@ -44,7 +66,7 @@ const questions = [
             'GNU Lesser General Public License (lgpl-3.0)',
             'MIT License (MIT)',
             'Mozilla Public License (mpl-2.0)',
-            'None required (unilicense)',
+            'None',
             // 'Apache License 2.0',
             // 'BSD 3-Clause "New" or "Revised" license',
             // 'BSD 2-Clause "Simplified" or "FreeBSD" license',
